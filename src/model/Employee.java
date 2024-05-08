@@ -1,4 +1,6 @@
 package model;
+import javax.swing.JTextField;
+
 import main.Logable;
 
 public class Employee extends Person implements Logable {
@@ -25,6 +27,9 @@ public class Employee extends Person implements Logable {
 	
 	
 	}
+
+
+	
 }
 	
 

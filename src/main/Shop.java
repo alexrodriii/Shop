@@ -5,6 +5,9 @@ import model.Client;
 import model.Employee;
 import model.Product;
 import model.Sale;
+import view.CashView;
+import view.LoginView;
+
 import java.util.Scanner;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
@@ -555,7 +558,10 @@ System.out.println("Producto no encontrado o sin stock");
 	}
 	public void initSession() {
 	Scanner sc = new Scanner (System.in);
+	LoginView loginV = new LoginView();
+	
 	Employee e = new Employee ();
+	
 	
    int user = 0;
    boolean login;
@@ -580,6 +586,9 @@ System.out.println("Producto no encontrado o sin stock");
 	if (login) {
 	System.out.println("\nBienvenido a nuestra tienda!");
 }
+	
 }
-
+	 public double getCash() {
+		 return cash;
+	 }
 }
