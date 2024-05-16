@@ -6,7 +6,9 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
+import exception.LimitLoginException;
 import model.Employee;
+import utils.Constants;
 
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
@@ -31,6 +33,7 @@ public class LoginView extends JFrame implements ActionListener {
 	private JTextField user;
 	private JTextField password;
 	private JButton btnNewButton;
+	private int loginCounter;
 
 	/**
 	 * Launch the application.
@@ -114,32 +117,78 @@ public class LoginView extends JFrame implements ActionListener {
 	
 	@Override
 
+
+
 	public void actionPerformed(ActionEvent e) {
+
      	if(e.getSource() == btnNewButton) {
+
 			Employee employee = new Employee();
 
+
+
 			  int username = Integer.parseInt(user.getText()); 
+
 		      String passwords = password.getText();
+
 		      
+
 		      boolean logged = employee.login(username, passwords);
+
+
 
 		      if(logged) {
 
+
+
 	            ShopView shopView = new ShopView(); 
+
 		            shopView.setVisible(true);         
+
 		            dispose();
+
 		        } else {
-		        	 
-		            JOptionPane.showMessageDialog(this, "Error al logearte. Porfavor vuelve a intentarlo"+ JOptionPane.ERROR_MESSAGE);
+
+		        	 loginCounter++;
+
+		        	 if(Constants.MAX_LOGIN_TIMES <= loginCounter){
+
+		        		 try {
+
+		        			 throw new LimitLoginException("Superado máximo numero de intentos");
+
+		        		 } catch (LimitLoginException ex){
+
+		        			 JOptionPane.showMessageDialog(this, ex.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
+
+		                      
+
+		                        dispose();
+
+		        		 }
+
+		        	 } else {
+
+		        		 JOptionPane.showMessageDialog(this, "Error al logearte. Porfavor vuelve a intentarlo"+ JOptionPane.ERROR_MESSAGE);
+
+		        	 }
+
 		           
+
+		           
+
 		        }
+
        
+
 		    }
 
+
+
 		}
+
 	}	
+
 		// else abrir joption pane
+
 		
-	
-
-

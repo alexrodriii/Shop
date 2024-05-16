@@ -522,6 +522,18 @@ System.out.println("Producto no encontrado o sin stock");
 	* check if inventory is full or not
 	*
 	*/
+	public boolean deleteProduct(String productName) {
+	    ArrayList<Product> inventory = new ArrayList<>();
+	    // Cargar el inventario desde algún lugar (por ejemplo, desde el constructor o un método separado)
+	    // ...
+	    for (Product product : inventory) {
+	        if (product.getName().equalsIgnoreCase(productName)) {
+	            inventory.remove(product);
+	            return true;
+	        }
+	    }
+	    return false;
+	}
 	
 	public boolean isInventoryFull() {
 		if (numberProducts == 10) {
@@ -559,14 +571,12 @@ System.out.println("Producto no encontrado o sin stock");
 	public void initSession() {
 	Scanner sc = new Scanner (System.in);
 	LoginView loginV = new LoginView();
-	
 	Employee e = new Employee ();
 	
-	
-   int user = 0;
-   boolean login;
-   String password = null;
-   e.login(user, password);
+       int user = 0;
+       boolean login;
+       String password = null;
+       e.login(user, password);
 	
 	do {
 	System.out.println("Introduce tu numero de usuario: ");
@@ -578,7 +588,7 @@ System.out.println("Producto no encontrado o sin stock");
 	
 	if (!login) {
 	 System.err.println("Error, contraseña o password incorrectos.");
-	}
+	  }
 	
 	} while (!login);
 	

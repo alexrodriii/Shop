@@ -122,7 +122,7 @@ public class ShopView extends JFrame implements ActionListener, KeyListener {
 			public void actionPerformed(ActionEvent e) {
 				if(e.getSource() == btnNewButton_3) {
 					ProductView eliminarView = new ProductView();
-					eliminarView.setVisible(true);
+					eliminarView.deleteProduct();
 				}
 			}
 		});
