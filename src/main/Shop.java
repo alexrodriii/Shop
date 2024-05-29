@@ -390,7 +390,6 @@ import java.io.BufferedReader;
 	
 	
 	
-	// sale product until input name is not 0
 		double totalAmount = 0.0;
 	
 	String name = "";
@@ -414,7 +413,7 @@ import java.io.BufferedReader;
 	
 	product.setStock(product.getStock() - 1);
 	
-	// if no more stock, set as not available to sale
+
 	
 	if (product.getStock() == 0) {
 	
@@ -524,8 +523,7 @@ System.out.println("Producto no encontrado o sin stock");
 	*/
 	public boolean deleteProduct(String productName) {
 	    ArrayList<Product> inventory = new ArrayList<>();
-	    // Cargar el inventario desde algún lugar (por ejemplo, desde el constructor o un método separado)
-	    // ...
+	 
 	    for (Product product : inventory) {
 	        if (product.getName().equalsIgnoreCase(productName)) {
 	            inventory.remove(product);
